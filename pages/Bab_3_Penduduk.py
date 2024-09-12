@@ -77,11 +77,12 @@ with st.container(border=True):
             with st.container(border=True):
                 st.plotly_chart(bar_kk, use_container_width=True)
         with kol1f:
-            st.dataframe(tabelkk2, hide_index=True, use_container_width=True)
-            st.subheader("", divider='rainbow')
-            tabelseri = datakk[(datakk['namakab'] == pilihkab) & (datakk['namakec'] == pilihkec)]
-            with st.expander("Lihat Tabel Seri"):
-                st.dataframe(tabelseri, use_container_width=True, hide_index=True)
+            bar_kk2 = px.bar(tabelkk2, x='jumlah_penduduk', y='namadesa', color='namadesa',
+                            text='jumlah_penduduk', orientation='h',           
+                            color_discrete_sequence=warna_options[pilihwarna])
+            bar_kk2.update_layout(showlegend=False)
+            with st.container(border=True):
+                st.plotly_chart(bar_kk2, use_container_width=True)
 
 st.subheader("", divider='rainbow')
 with st.container(border=True):
@@ -132,5 +133,10 @@ with st.container(border=True):
     with kolc:
         with st.container(border=True):
             st.plotly_chart(line_kk, use_container_width=True)
-    
+
+st.subheader("", divider='rainbow')
+with st.container(border=True):
+    tabelseri = datakk[(datakk['namakab'] == pilihkab) & (datakk['namakec'] == pilihkec)]
+    st.dataframe(tabelseri, use_container_width=True, hide_index=True)
+st.subheader("", divider='rainbow')
 st.link_button("sumber Data", url="https://portaldatadesa.jabarprov.go.id/index-profile-desa/Sosial/Demografi")
