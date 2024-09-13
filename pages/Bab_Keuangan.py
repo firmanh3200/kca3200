@@ -121,6 +121,7 @@ st.subheader("", divider='rainbow')
 with st.container(border=True):
     tabelseri = datakk[(datakk['namakab'] == pilihkab) & (datakk['namakec'] == pilihkec)]
     tabelseri = tabelseri[['tahun', 'namakab', 'namakec', 'namadesa', 'pad', 'dd', 'pajak_dan_retribusi', 'alokasi_dd', 'bantuan_prov', 'bantuan_kabkot', 'lainnya']]
+    tabelseri = tabelseri.sort_values(by=['tahun', 'namakec', 'namadesa'], ascending=[False, True, True])
     st.dataframe(tabelseri, use_container_width=True, hide_index=True)
 
 st.subheader("", divider='rainbow')
