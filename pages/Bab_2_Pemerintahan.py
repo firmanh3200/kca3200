@@ -5,7 +5,7 @@ import openpyxl
 
 st.set_page_config(layout='wide')
 
-#st.title(":green[Bahan Grafik Kecamatan Dalam Angka]")
+st.title(":green[Grafik Kecamatan Dalam Angka]")
 
 st.header(":blue[BAB 2 PEMERINTAHAN]")
 st.subheader("", divider='rainbow')
